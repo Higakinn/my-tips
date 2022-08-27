@@ -1,4 +1,4 @@
-# [kubectl](https://jamesdefabia.github.io/docs/user-guide/kubectl-cheatsheet/)-tips
+# [kubectl](https://kubernetes.io/ja/docs/reference/kubectl/_print/)-tips
 
 ## 該当リソースのラベルを確認
 
@@ -35,3 +35,10 @@ kubectl patch deployment <deployment-name> -p '{"spec":{"replicas": <replica-num
 ```shell
 kubectl patch service <service-name> -p '{"spec":{"type":"<service-type>"}}'
 ```
+
+## 該当deploymentのpod をsleep で 立ち上げ直す
+
+```shell
+kubectl patch deploy <deployment-name> --type='json' -p='[{"op": "add", "path": "/spec/template/spec/containers/0/command", "value": ["tail","-f","/dev/null"]  }]'
+```
+
