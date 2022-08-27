@@ -39,6 +39,6 @@ kubectl patch service ${svc_name} -p '{"spec":{"type":"<service-type>"}}'
 ## 該当deploymentのpod をsleep で 立ち上げ直す (sleep deploy)
 
 ```shell
-kubectl patch deploy ${deploy_name} --type='json' -p='[{"op": "add", "path": "/spec/template/spec/containers/0/command", "value": ["tail","-f","/dev/null"] }]'
+kubectl patch deploy ${deploy_name} --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/command", "value": ["tail","-f","/dev/null"] }]'
 ```
 
