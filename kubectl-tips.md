@@ -42,3 +42,8 @@ kubectl patch service ${svc_name} -p '{"spec":{"type":"<service-type>"}}'
 kubectl patch deploy ${deploy_name} --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/command", "value": ["tail","-f","/dev/null"] }]'
 ```
 
+## test デプロイメントを作成す (create test deployment)
+
+```shell
+kubectl create deployment ${deploy_name} --image=${docker_image_name}
+```
