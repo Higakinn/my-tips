@@ -45,5 +45,11 @@ kubectl patch deploy ${deploy_name} --type='json' -p='[{"op": "replace", "path":
 ## test デプロイメントを作成す (create test deployment)
 
 ```shell
-kubectl create deployment ${deploy_name} --image=${docker_image_name}
+kubectl create deployment ${deploy_name} --image=${docker_image_name} --replicas=${replicas}
+```
+
+## pod 再起動(rolling update)
+
+```shell
+kubectl rollout restart deployment ${deploy_name} 
 ```
