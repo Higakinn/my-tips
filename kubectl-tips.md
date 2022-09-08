@@ -1,4 +1,50 @@
+<<<<<<< HEAD
+# kubectl-tips
+=======
 # [kubectl](https://kubernetes.io/ja/docs/reference/kubectl/_print/)-tips
+>>>>>>> 0870ba606d5932bd1c0108659b8184e23118a666
+
+<<<<<<< HEAD
+## 該当リソースのラベルを確認
+
+```shell
+kubectl get <resource-name> --show-labels
+```
+
+## cronjobから単発のjobを実行する
+```shell
+kubectl create job <job-name> --from=cronjob/<cronjob-name> 
+```
+
+## cronjobから定義している環境変数参照 (jq 利用)
+
+```shell
+kubectl get cronjob <cronjob-name> -o json | jq .spec.jobTemplate.spec.template.spec.containers[0].env
+```
+
+## configファイルのマージ
+
+```shell
+KUBECONFIG=~/.kube/config:~/config kubectl config view --flatten
+```
+
+## replica数を変更する
+
+```shell
+kubectl patch deployment <deployment-name> -p '{"spec":{"replicas": <replica-number>}}'
+```
+
+## serviceのtypeを変更
+
+```shell
+kubectl patch service <service-name> -p '{"spec":{"type":"<service-type>"}}'
+```
+
+## cronjob manifest
+
+```shell
+kubectl create cronjob crontest --image=nginx --schedule='0 12 * * *' --dry-run=client  -o json
+```
 
 ## バージョン確認 (check kubectl version)
 
