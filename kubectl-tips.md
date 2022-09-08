@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-# kubectl-tips
-=======
 # [kubectl](https://kubernetes.io/ja/docs/reference/kubectl/_print/)-tips
->>>>>>> 0870ba606d5932bd1c0108659b8184e23118a666
 
-<<<<<<< HEAD
 ## 該当リソースのラベルを確認
 
 ```shell
